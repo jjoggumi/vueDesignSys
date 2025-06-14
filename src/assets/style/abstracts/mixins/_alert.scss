@@ -7,10 +7,6 @@
   --#{$prefix}alert-border-color: #{$border};
   --#{$prefix}alert-link-color: #{shade-color($color, 20%)};
 
-  @if $enable-gradients {
-    background-image: var(--#{$prefix}gradient);
-  }
-
   .alert-link {
     color: var(--#{$prefix}alert-link-color);
   }

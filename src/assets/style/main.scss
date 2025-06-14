@@ -3,7 +3,6 @@
 @import "@/assets/style/abstracts/fonts";
 // Configuration
 @import "@/assets/style/abstracts/functions";
-@import "@/assets/style/abstracts/custom-variables";
 @import "@/assets/style/abstracts/variables";
 @import "@/assets/style/abstracts/variables-dark";
 @import "@/assets/style/abstracts/maps";
@@ -49,5 +48,3 @@
 // Utilities
 @import "@/assets/style/abstracts/api";
 // scss-docs-end import-stack
-
-@import "@/assets/style/abstracts/mixins_add";
