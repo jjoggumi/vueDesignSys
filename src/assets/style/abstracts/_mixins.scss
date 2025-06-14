@@ -1,16 +1,42 @@
-/* ==========================================================================
-🔧 MIXINS
-========================================================================== */
+// Toggles
+//
+// Used in conjunction with global variables to enable certain theme features.
 
-/* font-face */
-@mixin font-face($name, $file, $weight: 400, $style: normal) {
-  @font-face {
-    font-family: $name;
-    src: url('@/assets/fonts/#{$name}/#{$file}.woff2') format('woff2'),
-         url('@/assets/fonts/#{$name}/#{$file}.woff') format('woff'),
-         url('@/assets/fonts/#{$name}/#{$file}.ttf') format('truetype');
-    font-weight: $weight;
-    font-style: $style;
-    font-display: swap;
-  }
-}
+// Vendor
+@import "vendor/rfs";
+
+// Deprecate
+@import "mixins/deprecate";
+
+// Helpers
+@import "mixins/breakpoints";
+@import "mixins/color-mode";
+@import "mixins/color-scheme";
+@import "mixins/image";
+@import "mixins/resize";
+@import "mixins/visually-hidden";
+@import "mixins/reset-text";
+@import "mixins/text-truncate";
+
+// Utilities
+@import "mixins/utilities";
+
+// Components
+@import "mixins/backdrop";
+@import "mixins/buttons";
+@import "mixins/caret";
+@import "mixins/pagination";
+@import "mixins/lists";
+@import "mixins/forms";
+@import "mixins/table-variants";
+
+// Skins
+@import "mixins/border-radius";
+@import "mixins/box-shadow";
+@import "mixins/gradients";
+@import "mixins/transition";
+
+// Layout
+@import "mixins/clearfix";
+@import "mixins/container";
+@import "mixins/grid";

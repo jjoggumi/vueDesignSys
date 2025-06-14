@@ -44,12 +44,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.btn {
-  &.btn-round {
-    border-radius: 50px;
-  }
-  &.btn-square {
-    border-radius: 0px;
-  }
-}
 </style>

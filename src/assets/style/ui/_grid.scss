@@ -1,90 +1,39 @@
-/* Grid Mixin */
-@mixin gridMq($size){	
-	.col#{$size} {
-		flex: 1 0 0%;
-	}
-	.row-cols#{$size}-auto > * {
-		flex: 0 0 auto;
-		width: auto;  
-	}
-	
-	@for $i from 1 to 7{
-		.row-cols#{$size}-#{$i} > * {
-			flex: 0 0 auto;
-			width: calc(100% / #{$i});
-		}
-	}	
-	
-	.col#{$size}-auto {
-		flex: 0 0 auto;
-		width: auto;
-	}
-	
-	@for $i from 1 to 13{		  
-		.col#{$size}-#{$i}{
-			flex: 0 0 auto;
-			width: calc(100% / ( 12 / #{$i}));	  	  
-		}
-	}
-	
-	// @for $i from 0 to 12{		  
-	// 	.offset#{$size}-#{$i}{
-	//   	margin-left: calc(100% / ( 12 / $i ));  	  
-	// 	}
-	// }
-}
-/* grid */
-.hi-row {
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	align-items: center;
-	margin-right: -16px;
-	margin-left: -16px;
-	
-	> * {
-  		position: relative;
-		flex-shrink: 0;
-		width: 100%;
-		max-width: 100%;
-		padding-right: 1.6rem;
-		padding-left: 1.6rem;
-	}
-	
-	&.sm-gutters {
-		margin-right: -.4rem;
-		margin-left: -.4rem;  
-	  
-		> * {
-		  padding-right: .4rem;
-		  padding-left: .4rem;
-		}
-	}
-	
-	&.no-gutters {
-		margin-right: 0;
-		margin-left: 0;
-		
-		> * {			
-			padding-right: 0;
-			padding-left: 0;
-		}
-	}  
+// Row
+//
+// Rows contain your columns.
+
+:root {
+  @each $name, $value in $grid-breakpoints {
+    --#{$prefix}breakpoint-#{$name}: #{$value};
+  }
 }
 
-@media (min-width: 576px) {
-	@include gridMq('-sm');	
+@if $enable-grid-classes {
+  .row {
+    @include make-row();
+
+    > * {
+      @include make-col-ready();
+    }
+  }
 }
-@media (min-width: 768px) {
-	@include gridMq('-md');
+
+@if $enable-cssgrid {
+  .grid {
+    display: grid;
+    grid-template-rows: repeat(var(--#{$prefix}rows, 1), 1fr);
+    grid-template-columns: repeat(var(--#{$prefix}columns, #{$grid-columns}), 1fr);
+    gap: var(--#{$prefix}gap, #{$grid-gutter-width});
+
+    @include make-cssgrid();
+  }
 }
-@media (min-width: 992px) {	
-	@include gridMq('-lg');
-}
-@media (min-width: 1200px) {	
-	@include gridMq('-xl');
-}
-@media (min-width: 1400px) {  
-	@include gridMq('-xxl');
+
+
+// Columns
+//
+// Common styles for small and large grid columns
+
+@if $enable-grid-classes {
+  @include make-grid-columns();
 }
