@@ -1,0 +1,65 @@
+//
+// Input & Forn
+// --------------------------------------------------
+
+//검색 폼
+.search-green {
+  width: 282px;
+  > .form-control {
+    height: $input-group-height;
+    line-height: $input-group-height - 13;
+
+    &:hover{
+      border-color: $default-border-color;
+    }
+    &:focus {
+      border-color: $success-border-focus-color;
+    }
+    &.input-sm {
+      height: $input-group-small-height;
+      line-height: $input-group-small-height - 10;
+    }
+    &.input-lg {
+      height: $input-group-lg-height;
+      line-height: $input-group-lg-height - 20;
+    }
+  }
+}
+
+// 입력 폼 오류 메시지
+.form-error {
+  .form-control,
+  .form-control:hover,
+  .form-control:focus {
+    border-color: $pink;
+  }
+  .help-block {
+    color: $pink;
+  }
+}
+
+.form-horizontal {
+  &.form-group-text {
+    .form-group {
+      .clear-box {
+        height: auto;
+      }
+      .control-label,
+      .clear-box {
+        padding-top: 2px;
+        padding-bottom: 2px;
+        border-top: none;
+        border-bottom: none;
+      }
+      &:last-child {
+        margin-bottom: 5px;
+      }
+    }
+    & + .form-horizontal {
+      padding-top: 5px;
+    }
+  }
+  & + .form-group-text {
+    padding-top: 8px;
+  }
+}

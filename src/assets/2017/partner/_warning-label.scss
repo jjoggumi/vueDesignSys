@@ -1,0 +1,18 @@
+//
+// warning label
+// --------------------------------------------------
+
+.warning-label {
+  padding: 16px 30px 17px;
+  background-color: #fdfcf2;
+  border-bottom: 1px solid #edf1f3;
+  font-size: 14px;
+  color: $gray-dark;
+  .fn-booking {
+    margin-left: -1px;
+    margin-right: 6px;
+    font-size: 18px;
+    color: $pink;
+    vertical-align: -5px;
+  }
+}

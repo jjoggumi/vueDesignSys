@@ -1,0 +1,403 @@
+//
+// Custom radio checkbox
+// --------------------------------------------------
+
+.custom-radio-checkbox {
+  $check-radio-width:                     14px;
+  $check-radio-height:                    14px;
+  $check-radio-position-top:              4px;
+  $check-icon-position-top:               9px;
+  $radio-icon-position-top:               7px;
+  $check-radio-line-height:               21px;
+  $left-menu-color:                     #a7a8ac;
+  $left-menu-box:                       #5a5d67;
+
+
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin-bottom: 3px;
+  margin-right: 2px;
+  vertical-align: middle;
+  font-family: inherit;
+  font-weight: normal;
+  font-size: inherit;
+  line-height: $check-radio-line-height;
+  &:hover {
+    .check-radio {
+      &[type=checkbox],
+      &[type=radio] {
+        & + .state-icon {
+          &:before{
+            border-color: $gray;
+          }
+        }
+      }
+    }
+  }
+  .text-label {
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+  }
+  .fn,
+  .fn-booking {
+    position: absolute;
+    opacity: 0;
+    @include transition(.2s ease-in-out opacity);
+    cursor: pointer;
+  }
+
+  .check-radio {
+    position: absolute;
+    top: 2px;
+    z-index: 10;
+    width: $check-radio-width;
+    height: $check-radio-height;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    // check
+    &[type=checkbox]{
+      & + .state-icon {
+        position: relative;
+        display: inline-block;
+        padding-left: 22px;
+        &:before{
+          content:"";
+          position: absolute;
+          top: $check-radio-position-top;
+          left: 0;
+          display: inline-block;
+          width: $check-radio-width;
+          height: $check-radio-height;
+          border: 1px solid $default-border-color;
+          border-radius: $border-radius-base;
+          background-color: $gray-lighter;
+          vertical-align: top;
+        }
+        .fn,
+        .fn-booking {
+          top: $check-icon-position-top;
+          left:ceil($check-radio-width/8);
+          font-size: $check-radio-width - 3px;
+          line-height:  0;
+          color: $gray-lighter;
+          &:before {
+            position: absolute;
+            top: 2px;
+            left: 0;
+            height: auto;
+            line-height: 0;
+            font-weight: bold;
+          }
+        }
+      }
+      &:checked + .state-icon,
+      &[checked] + .state-icon {
+        &:before{
+          background-color: $gray;
+          border-color: $gray;
+        }
+        .fn,
+        .fn-booking {
+          opacity: 1;
+        }
+      }
+      &:focus + .state-icon {
+        &:before{
+          @include tab-focus;
+        }
+      }
+      &:disabled + .state-icon,
+      &[disabled] + .state-icon {
+        opacity: 0.5;
+        &:before{
+          background-color: transparent !important;
+          border-color: rgba($gray,0.5) !important;
+        }
+        .fn,
+        .fn-booking {
+          color: $gray !important;
+          cursor: default;
+        }
+        .text-label {
+          color: $gray-light;
+          cursor: default;
+        }
+      }
+    }
+    &[type=radio]{
+      & + .state-icon {
+        position: relative;
+        display: inline-block;
+        padding-left: 22px;
+        &:before{
+          content:"";
+          position: absolute;
+          top: $check-radio-position-top;
+          left: 0;
+          display: inline-block;
+          width: $check-radio-width;
+          height: $check-radio-height;
+          border: 1px solid $default-border-color;
+          border-radius: $check-radio-width /2;
+          background-color: $gray-lighter;
+          vertical-align: top;
+        }
+        .fn,
+        .fn-booking{
+          top: $radio-icon-position-top;
+          left: 3px;
+        }
+      }
+      &:checked + .state-icon,
+      &[checked] + .state-icon {
+         &:before{
+          border-color: $gray;
+        }
+        .fn,
+        .fn-booking{
+          opacity: 1;
+          width: $check-radio-width - 6px;
+          height: $check-radio-height - 6px;
+          background-color: $gray;
+          border-radius: 4px;
+        }
+      }
+      &:focus + .state-icon {
+        &:before{
+          @include tab-focus;
+        }
+      }
+      &:disabled + .state-icon,
+      &[disabled] + .state-icon {
+        &:before{
+          background-color: $gray-lighter !important;
+          border-color: rgba($gray,0.5) !important;
+        }
+        .fn,
+        .fn-booking{
+          background-color:rgba($gray,0.5) !important;
+          cursor: default;
+        }
+        .text-label {
+          color: $gray-light;
+          cursor: default;
+        }
+      }
+    }
+  }
+  &.primary {
+    .check-radio {
+      &[type=checkbox]{
+        &:checked + .state-icon {
+          &:before{
+            background-color: $brand-primary;
+            border-color: $brand-primary;
+          }
+        }
+      }
+      &[type=radio]{
+        &:checked + .state-icon {
+          &:before{
+            border-color: $brand-primary;
+          }
+          .fn,
+          .fn-booking{
+            background-color: $brand-primary;
+          }
+        }
+      }
+    }
+  }
+  &.success {
+    .check-radio {
+      &[type=checkbox]{
+        &:checked + .state-icon {
+          &:before{
+            background-color: $brand-success;
+            border-color: $brand-success;
+          }
+        }
+      }
+      &[type=radio]{
+        &:checked + .state-icon,
+        &[checked] + .state-icon {
+          &:before{
+            border-color: $brand-success;
+          }
+          .fn,
+          .fn-booking{
+            background-color: $brand-success;
+          }
+        }
+      }
+    }
+  }
+  &.info {
+    .check-radio {
+      &[type=checkbox]{
+        &:checked + .state-icon {
+          &:before{
+            background-color:$brand-info;
+            border-color: $brand-info;
+          }
+        }
+      }
+      &[type=radio]{
+        &:checked + .state-icon,
+        &[checked] + .state-icon {
+          &:before{
+            border-color: $brand-info;
+          }
+          .fn,
+          .fn-booking{
+            background-color: $brand-info;
+          }
+        }
+      }
+    }
+  }
+  &.danger {
+    .check-radio {
+      &[type=checkbox]{
+        &:checked + .state-icon,
+        &[checked] + .state-icon {
+          &:before{
+            background-color: $brand-danger;
+            border-color: $brand-danger;
+          }
+        }
+      }
+      &[type=radio]{
+        &:checked + .state-icon,
+        &[checked] + .state-icon {
+          &:before{
+            border-color: $brand-danger;
+          }
+          .fn,
+          .fn-booking{
+            background-color: $brand-danger;
+          }
+        }
+      }
+    }
+  }
+  &.black {
+    .check-radio {
+      &[type=checkbox]{
+        &:checked + .state-icon,
+        &[checked] + .state-icon {
+          &:before{
+            background-color: $brand-black;
+            border-color: $brand-black;
+          }
+        }
+      }
+      &[type=radio]{
+        &:checked + .state-icon,
+        &[checked] + .state-icon {
+          &:before{
+            border-color: $brand-black;
+          }
+          .fn,
+          .fn-booking{
+            background-color: $brand-black;
+          }
+        }
+      }
+    }
+  }
+  &.reverse {
+    .text-label {
+      color: $left-menu-color;
+    }
+    .check-radio {
+      &[type=checkbox]{
+        & + .state-icon{
+          &:before{
+            background-color: $left-menu-box;
+            border-color: $left-menu-box;
+          }
+        }
+        &:checked + .state-icon,
+        &[checked] + .state-icon {
+          &:before{
+            background-color: $gray-lighter;
+            border-color: $gray-lighter;
+          }
+          .text-label{
+            color: $gray-lighter;
+          }
+          .fn,
+          .fn-booking{
+            color: $gray-darker;
+            &:before {
+              font-weight: 700;
+            }
+          }
+        }
+      }
+      &[type=radio]{
+        & + .state-icon{
+          &:before{
+            background-color: $left-menu-box;
+            border-color: $left-menu-box;
+          }
+        }
+        &:checked + .state-icon,
+        &[checked] + .state-icon {
+          &:before{
+            background-color: $gray-lighter;
+            border-color: $gray-lighter;
+          }
+          .text-label{
+            color: $gray-lighter;
+          }
+          .fn,
+          .fn-booking{
+            background-color: $gray-darker;
+          }
+        }
+      }
+    }
+  }
+  & + .custom-radio-checkbox {
+    margin-left: 10px;
+  }
+  &.font-square {
+    font-family: $font-family-NSquare;
+    .check-radio {
+      &[type=checkbox]{
+        & + .state-icon {
+          &:before{
+            top: $check-radio-position-top - 1;
+          }
+          .fn,
+          .fn-booking {
+            top: $check-icon-position-top - 1;
+          }
+        }
+      }
+      &[type=radio]{
+        & + .state-icon {
+          &:before{
+            top: $check-radio-position-top - 1;
+          }
+          .fn,
+          .fn-booking{
+            top: $radio-icon-position-top - 1;
+          }
+        }
+      }
+    }
+  }
+  &.overflow-90 {
+    $overflow-space: 0;
+    .text-label {
+      max-width: 90px + $overflow-space;
+      @include text-overflow();
+    }
+  }
+}

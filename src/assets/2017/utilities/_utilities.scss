@@ -1,0 +1,126 @@
+//
+// Utility classes
+// --------------------------------------------------
+
+
+// Floats
+// -------------------------
+
+.clearfix {
+  @include clearfix;
+}
+.center-block {
+  @include center-block;
+}
+.pull-right {
+  float: right !important;
+}
+.pull-left {
+  float: left !important;
+}
+
+
+// Toggling content
+// -------------------------
+
+// Note: Deprecated .hide in favor of .hidden or .sr-only (as appropriate) in v3.0.1
+.hide {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+.invisible {
+  visibility: hidden;
+}
+.text-hide {
+  @include text-hide;
+}
+
+// add partner
+.inblock {
+  display: inline-block !important;
+}
+
+// Hide from screenreaders and browsers
+//
+// Credit: HTML5 Boilerplate
+
+.hidden {
+  display: none !important;
+}
+
+.hide-overflow{
+  overflow: hidden !important;
+}
+// For Affix plugin
+// -------------------------
+
+.affix {
+  position: fixed;
+}
+
+// For arial and NanumSquare
+.arial{
+  @include arial;
+}
+.nsquare{
+  @include nsquare;
+}
+
+// Add height 100% scroll wrapper
+.ui-scroller {
+  @include scroller(xy);
+}
+.ui-scroller-x {
+  @include scroller(x);
+}
+.ui-scroller-y {
+  @include scroller(y);
+}
+
+// font nav link style
+.fn-link {
+  margin-left:3px;
+  font-size: 15px;
+  vertical-align: -3px;
+  color: $brand-success;
+  &.fn-booking-newlayer {
+    font-size: 13px;
+    vertical-align: -2px;
+  }
+  &.fn-booking-m-info1 {
+    font-size: 18px;
+    vertical-align: -5px;
+  }
+}
+
+// 셀렉트 박스 블릿아이콘
+.fn-icon,
+.fn-icon-selectbox {
+  font-size: 18px;
+  color: $gray;
+}
+.fn-icon {
+  vertical-align: -5px;
+}
+.fn-icon-selectbox {
+  font-size: 18px !important;
+  color: $gray;
+}
+
+// vertical align
+.align-top{
+  vertical-align: top;
+}
+.align-middle{
+  vertical-align: middle;
+}
+.align-bottom{
+  vertical-align: bottom;
+}
+
+// 말줄임
+.text-overflow{
+  @include text-overflow();
+}

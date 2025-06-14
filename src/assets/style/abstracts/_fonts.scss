@@ -1,0 +1,13 @@
+@use 'mixins' as *;
+
+// 나눔스퀘어 
+@include font-face('NanumSquare', 'NanumSquareL', 300);
+@include font-face('NanumSquare', 'NanumSquareR');
+@include font-face('NanumSquare', 'NanumSquareB', 500);
+@include font-face('NanumSquare', 'NanumSquareEB', 600);
+
+// 나눔스퀘어라운드 
+@include font-face('NanumSquareRound', 'NanumSquareRoundL', 300);
+@include font-face('NanumSquareRound', 'NanumSquareRoundR');
+@include font-face('NanumSquareRound', 'NanumSquareRoundB', 500);
+@include font-face('NanumSquareRound', 'NanumSquareRoundEB', 600);

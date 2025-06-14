@@ -1,0 +1,60 @@
+//
+// Custom layer
+// --------------------------------------------------
+
+// 인포 아이콘 버튼
+.btn-icon-info {
+  margin:-2px 0 -2px 5px;
+  vertical-align: 0;
+  &.active {
+    .fn-info {
+      color: $brand-info;
+    }
+  }
+}
+
+// 결제 팝업 리스트
+.popup-price-list {
+  z-index: 30;
+  display: none;
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  margin-bottom: 25px;
+  overflow: auto;
+  max-height: $dropdown-scroll-height;
+  padding: ($padding-base-vertical - 5 ) ($padding-base-horizontal - 1 );
+  background-color: $gray-lighter;
+  border-radius: $border-radius-base;
+  border: 1px solid #909090;
+  &.open {
+    display: block;
+  }
+  &::-webkit-scrollbar-thumb:vertical {
+    border-width: 4px;
+  }
+  .price-list {
+    display: block;
+    margin: 0;
+    & + .price-list {
+      border-top: 1px solid $book-detail-border-color;
+    }
+  }
+  .price-title,
+  .popup-item {
+    font-weight: 400;
+  }
+  .price-title {
+    padding-top: 12px;
+    padding-bottom: 3px;
+  }
+  .popup-item {
+    padding-bottom: 12px;
+    border-bottom: 1px solid $book-detail-border-color;
+    color: $pink;
+    &:last-child {
+      border: none;
+    }
+  }
+}

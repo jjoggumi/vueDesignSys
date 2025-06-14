@@ -1,0 +1,13 @@
+//
+// Foot button group
+// --------------------------------------------------
+
+.foot-btn-group {
+  height: $foot-btn-group-height;
+  padding: 25px 30px;
+  border-top: 1px solid $foot-btn-group-border-color;
+  .flx-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

@@ -1,0 +1,29 @@
+//
+// icon
+// --------------------------------------------------
+
+
+// Floats
+// -------------------------
+
+@import '../base/sprites';
+
+@mixin sprite-iconInit(){
+  display: inline-block;
+  vertical-align: -2px;
+}
+
+.icon-minus {
+  @include sprite-iconInit();
+  @include get-sprite(minus-normal, $sp_qty);
+  &.disabled {
+    @include get-sprite(minus-disabled, $sp_qty);
+  }
+}
+.icon-plus {
+  @include sprite-iconInit();
+  @include get-sprite(plus-normal, $sp_qty);
+  &.disabled {
+    @include get-sprite(plus-disabled, $sp_qty);
+  }
+}

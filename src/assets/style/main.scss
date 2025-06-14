@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+@import "@/assets/style/abstracts/fonts";
+// Configuration
+@import "@/assets/style/vendors/bootstrap/functions";
+@import "@/assets/style/abstracts/custom-variables";
+@import "@/assets/style/vendors/bootstrap/variables";
+@import "@/assets/style/vendors/bootstrap/variables-dark";
+@import "@/assets/style/vendors/bootstrap/maps";
+@import "@/assets/style/vendors/bootstrap/mixins";
+@import "@/assets/style/vendors/bootstrap/utilities";
+
+// Layout & components
+@import "@/assets/style/vendors/bootstrap/root";
+@import "@/assets/style/vendors/bootstrap/reboot";
+@import "@/assets/style/vendors/bootstrap/type";
+// @import "@/assets/style/bootstrap/images";
+//@import "containers";
+@import "@/assets/style/vendors/bootstrap/grid";
+// @import "@/assets/style/bootstrap/tables";
+// @import "@/assets/style/bootstrap/forms";
+@import "@/assets/style/vendors/bootstrap/buttons";
+// @import "@/assets/style/bootstrap/transitions";
+// @import "@/assets/style/bootstrap/dropdown";
+// @import "@/assets/style/bootstrap/button-group";
+// @import "@/assets/style/bootstrap/nav";
+// @import "@/assets/style/bootstrap/navbar";
+// @import "@/assets/style/bootstrap/card";
+// @import "@/assets/style/bootstrap/accordion";
+// @import "@/assets/style/bootstrap/breadcrumb";
+// @import "@/assets/style/bootstrap/pagination";
+// @import "@/assets/style/bootstrap/badge";
+// @import "@/assets/style/bootstrap/alert";
+// @import "@/assets/style/bootstrap/progress";
+// @import "@/assets/style/bootstrap/list-group";
+//@import "close";
+// @import "@/assets/style/bootstrap/toasts";
+// @import "@/assets/style/bootstrap/modal";
+// @import "@/assets/style/bootstrap/tooltip";
+// @import "popover";
+// @import "carousel";
+//@import "spinners";
+// @import "offcanvas";
+// @import "placeholders";
+
+// Helpers
+// @import "helpers";
+
+// Utilities
+@import "@/assets/style/vendors/bootstrap/utilities/api";
+// scss-docs-end import-stack
+
+@import "@/assets/style/abstracts/mixins";

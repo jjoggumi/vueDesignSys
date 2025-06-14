@@ -1,0 +1,65 @@
+//
+// Pagination
+// --------------------------------------------------
+
+.page-navigation {
+	text-align: center;
+	.fn-booking {
+		font-size: 14px;
+		vertical-align: -3px;
+		color: $gray-dark;
+	}
+	.next,
+	.prev,
+	.list-number {
+		display: inline-block;
+		line-height: $line-height-base;
+		vertical-align: top;
+	}
+	.next,
+	.prev {
+		padding: ($padding-base-vertical + 1px) ($padding-base-horizontal - 2px) ($padding-base-vertical + 2px);
+		text-decoration: none;
+		background-color: $pagination-bg;
+		border: 1px solid $pagination-border;
+		border-radius: $border-radius-base;
+		&:hover,
+		&:focus {
+			color: $pagination-color;
+			background-color: $pagination-bg;
+			border: 1px solid $pagination-border;
+		}
+		&.disabled {
+			color: $pagination-disabled-color;
+			background-color: $pagination-disabled-bg;
+			border-color: $pagination-disabled-border;
+			cursor: $cursor-disabled;
+			&:hover,
+			&:focus {
+				color: $pagination-disabled-color;
+				background-color: $pagination-disabled-bg;
+				border-color: $pagination-disabled-border;
+				cursor: $cursor-disabled;
+			}
+			.fn-booking {
+				color: #dedede;
+			}
+		}
+	}
+	.list-number {
+		padding: ($padding-base-vertical + 3px) ($padding-base-horizontal + 12px) ($padding-base-vertical + 2px);
+		font-family: $font-family-arial;
+		font-size: 14px;
+		.current {
+			color: $green-text;
+		}
+		.slash {
+			padding-left: 4px;
+			padding-right: 4px;
+			color: #ccc;
+		}
+		.total {
+			color: $gray;
+		}
+	}
+}

@@ -1,0 +1,365 @@
+//
+// Custom selectbox
+// --------------------------------------------------
+
+.custom-selectbox {
+  $custom-selectbox-disabled-border-color:          #d5d5d5;
+  $list-border-line-color:                          #f2f2f2;
+
+  position: relative;
+  display: inline-block;
+
+  > .form-control {
+    float: none;
+    border-radius: $border-radius-base !important;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      border-color: $default-border-hover-color;
+    }
+    &[disabled] {
+      border-color: $custom-selectbox-disabled-border-color;
+      color: $gray-light;
+      &:hover{
+        border-color: $custom-selectbox-disabled-border-color;
+      }
+      &:focus {
+        border-color: $custom-selectbox-disabled-border-color;
+      }
+    }
+    &.inputgroup-form-lg {
+      float: none;
+      clear: left;
+      height: $input-height-large;
+      line-height: $line-height-large;
+    }
+    &.inputgroup-form-sm {
+      float: none;
+      clear: left;
+      height: $input-height-small;
+      line-height: $line-height-small;
+    }
+  }
+  &.active {
+    > .form-control {
+      &:hover {
+        border-color: $default-border-color;
+      }
+    }
+  }
+  > .fn,
+  > .fn-booking {
+    position: absolute;
+    z-index: 20;
+    right: 1px;
+    top: 1px;
+    height: $input-height-base - 2px;
+    padding: 10px;
+    line-height: ceil($input-height-base/1.65);
+    background-color: $gray-lighter;
+    @include linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 1) 100%);
+    border-radius: $border-radius-base;
+    font-size: 16px;
+    color:#bbb;
+    pointer-events: none;
+  }
+
+  //custom-selectbox hover
+  &:hover {
+    > .fn,
+    > .fn-booking {
+      color:#666;
+    }
+  }
+  // list
+  .selectbox-list {
+    z-index: 800;
+    position: absolute;
+    top : $input-height-base - 1px;
+    left: 0;
+    right: 0;
+    display: none;
+    overflow: auto;
+    max-height: $dropdown-scroll-height;
+    padding: ceil($padding-base-vertical - 1px) $padding-base-horizontal;
+    background-color: $gray-lighter;
+    border-radius: $border-radius-base;
+    border: 1px solid $default-border-hover-color;
+    .item {
+      padding:4px 0;
+    }
+    .btn-select {
+      display: block;
+      width:100%;
+      text-align: left;
+      &:hover,
+      &:focus {
+        color: $brand-info;
+        outline: none;
+      }
+    }
+    &::-webkit-scrollbar {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb:vertical {
+      border-width: 4px;
+    }
+  }
+  .item {
+    &.active {
+      .btn-select {
+        color: $brand-info;
+      }
+    }
+  }
+  &.disabled {
+     > .fn,
+     > .fn-booking {
+      color:#bbb;
+      opacity: 0.5;
+    }
+    > .form-control {
+      border-color: $custom-selectbox-disabled-border-color;
+      color: $gray-light;
+      cursor: default;
+      &:hover{
+        border-color: $custom-selectbox-disabled-border-color;
+      }
+      &:focus {
+        border-color: $custom-selectbox-disabled-border-color;
+      }
+    }
+    .form-text {
+      color: $gray-light;
+      opacity: 0.5;
+    }
+  }
+  & + .custom-selectbox {
+    margin-left: 10px;
+  }
+  &.open {
+    .selectbox-list {
+      display: block;
+    }
+    > .form-control {
+      border-color: $custom-selectbox-disabled-border-color;
+      &:hover,
+      &:focus {
+        border-color: $custom-selectbox-disabled-border-color;
+      }
+    }
+  }
+
+  &.block {
+    display: block;
+    > .form-control {
+      overflow: hidden;
+      height: auto;
+
+      min-height: $input-height-base;
+      padding-top: $padding-base-vertical + 2;
+      padding-bottom: $padding-base-vertical + 2;
+      line-height: 1.6;
+      text-align: left;
+      .form-text {
+        overflow: hidden;
+        display: block;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        max-height: 41px;
+        margin-right: 15px;
+        text-overflow: ellipsis;
+      }
+
+    }
+    .selectbox-list {
+      top: 100%;
+      margin-top: -1px;
+      .item {
+        &.border-line {
+          padding-top: 8px;
+          padding-bottom: 12px;
+          border-bottom: 1px solid $list-border-line-color;
+          & + .border-line {
+            padding-top: 12px;
+          }
+        }
+        &:last-child {
+          &.border-line {
+            padding-bottom: 8px;
+            border-bottom: none;
+          }
+        }
+      }
+    }
+     > .fn,
+     > .fn-booking {
+      @include calc( height,'100% - 3px' );
+      padding: 0 9px;
+      margin-top: 1px;
+      margin-bottom: 1px;
+      &:before {
+        position: relative;
+        @include calc( top,'100% - 28px' );
+      }
+    }
+  }
+  // hover 시 아이콘 info 컬러로
+  &.icon-info {
+    .fn-booking{
+      color: $gray;
+    }
+    &.open {
+      .fn-booking {
+        color: $brand-info;
+      }
+    }
+  }
+  // 예약목록 타이틀 형 셀렉트
+  .select-title {
+    position: relative;
+    display: inline-block;
+    margin-right: 8px;
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 9px;
+      height: 13px;
+      border-right: 1px solid #dedede;
+      vertical-align: -3px;
+    }
+  }
+  // 라디오 체크박스 등 hover 컬러
+  .custom-radio-checkbox {
+    &:hover {
+      &.info {
+        .text-label {
+          color: $brand-info;
+        }
+      }
+    }
+  }
+  // select-sm 작은 사이즈 추가
+  &.select-sm {
+    > .fn,
+    > .fn-booking {
+      @include calc( height,'100% - 3px' );
+      &:before {
+        position: relative;
+        //top: 100%;
+        @include calc( top,'100% - 23px' );
+      }
+    }
+    > .form-control {
+      min-height: 30px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      padding-left: $padding-small-horizontal;
+      padding-right: $padding-small-horizontal;
+      line-height: inherit;
+      .form-text {
+        max-height: 44px;
+      }
+    }
+  }
+}
+
+// // 인풋그룹 디폴트 일때 아이콘 높이
+// @mixin customSelectboxArrow () {
+//   display: block;
+//   > .fn,
+//   > .fn-booking {
+//     height: $input-height-base - 6px;
+//     padding: 10px 8px 10px 8px;
+//     line-height: 22px;
+//   }
+//   .form-control {
+//     padding-left: $padding-base-horizontal;
+//     padding-right: $padding-base-horizontal;
+//     border-radius: $border-radius-base !important;
+//   }
+//   .selectbox-list {
+//     top : $input-group-height - 1;
+//   }
+// }
+// // 인풋그룹 lg 일때 아이콘 높이
+// @mixin customSelectboxArrow-lg () {
+//   > .fn,
+//   > .fn-booking {
+//     height: $input-height-large - 2px;
+//     line-height: 26px;
+//   }
+//   .form-control {
+//     padding-left: $input-group-padding-lg-hor;
+//     padding-right: $input-group-padding-lg-hor;
+//     border-radius:  $border-radius-large !important;
+//   }
+//   .selectbox-list {
+//     top : $input-height-large - 1;
+//   }
+// }
+// // 인풋그룹 sm 일때 아이콘 높이
+// @mixin customSelectboxArrow-sm () {
+//   > .fn,
+//   > .fn-booking {
+//     height: $input-height-small - 2px;
+//     padding: 5px 8px 5px 8px;
+//     line-height: 25px;
+//   }
+//   .form-control {
+//     padding-left: $padding-small-horizontal;
+//     padding-right: $padding-small-horizontal;
+//     border-radius:  $border-radius-small !important;
+//   }
+//   .selectbox-list {
+//     top : $input-height-small - 1;
+//   }
+// }
+// // 인풋그룹 디폴트 아이콘 높이 설정
+// .input-group {
+//   .custom-selectbox {
+//     &:not(.block) {
+//       @include customSelectboxArrow ();
+//     }
+//   }
+// }
+// .custom-selectbox {
+//   &:not(.block) {
+//     &.select-default {
+//       @include customSelectboxArrow ();
+//     }
+//   }
+// }
+
+// // 인풋그룹 lg 아이콘 높이 설정
+// .input-group-lg {
+//   .custom-selectbox {
+//     &:not(.block) {
+//       @include customSelectboxArrow-lg ();
+//     }
+//   }
+// }
+// .custom-selectbox {
+//   &:not(.block) {
+//     &.select-lg {
+//       @include customSelectboxArrow-lg ();
+//     }
+//   }
+// }
+
+// // 인풋그룹 sm 아이콘 높이 설정
+// .input-group-sm {
+//   .custom-selectbox {
+//     &:not(.block) {
+//       @include customSelectboxArrow-sm ();
+//     }
+//   }
+// }
+// .custom-selectbox {
+//   &:not(.block) {
+//     &.select-sm {
+//       @include customSelectboxArrow-sm ();
+//     }
+//   }
+// }

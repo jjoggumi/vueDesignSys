@@ -1,0 +1,35 @@
+//
+// No Data Alert
+// --------------------------------------------------
+
+
+// Base styles
+// -------------------------
+
+$nodata-icon-color:       #c7c7c7;
+$nodata-icon-size:          68px;
+$description-font-size:     20px;
+$sub-descriptoin-font-size: 14px;
+
+.nodata{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include translate(-50%, -50%);
+  text-align: center;
+  .fn-nodata{
+    color: $nodata-icon-color;
+    font-size: $nodata-icon-size;
+  }
+  .description{
+    margin-top: 8px;
+    @include nsquare();
+    font-size: $description-font-size;
+  }
+  .sub-description{
+    margin-top: 5px;
+    min-width: 300px;
+    color: $gray;
+    font-size: $sub-descriptoin-font-size;
+  }
+}

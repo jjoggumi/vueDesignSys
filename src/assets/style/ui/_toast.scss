@@ -1,0 +1,46 @@
+/* toast-popup  >> scss 취합 */
+.toast-popup {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 400px;
+  height: 40px;
+  line-height: 40px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", "segoe ui emoji", sans-serif;
+  font-weight: 400;
+  border-radius: 12px;
+}
+
+.toasted .primary,
+.toasted.toasted-primary {
+  min-height: 56px !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  color: #fff;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+  font-weight: 400 !important;
+  padding: 16px 20px !important;
+  border-radius: 16px !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  margin: 0 auto;
+} 
+
+.toasted-container .toasted.type01{
+  width:400px; 
+  min-height: 66px !important;
+  border-radius: 50px !important;
+  justify-content: center;
+}
+
+//게시글 내보내기 모달내 토스트
+.toasted-container.post-export-bottom-center{
+  bottom: 12%;
+  transform: translate(-50%, 0);
+  left: 50%;
+}

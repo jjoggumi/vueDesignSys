@@ -1,0 +1,157 @@
+//
+// Custom layout
+// --------------------------------------------------
+
+// board
+.board-group {
+  .board {
+    position: relative;
+    background-color: $gray-lighter;
+    @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+    & + .board {
+      margin-top: 0;
+      margin-left: 12px;
+    }
+  }
+}
+* + .board {
+  margin-top: 20px;
+}
+
+//tab
+.content-header-tab-group {
+  height: $contents-tab-height;
+  padding: 12px ($contents-padding-side - 7px) 0;
+  @include clearfix();
+  .content-header-tab {
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .item {
+    display: inline-block;
+    padding-top: 8px;
+    padding-bottom: 14px;
+    vertical-align: top;
+    font-weight: bold;
+    .tab {
+      font-family: $font-family-NSquare;
+      font-size: 17px;
+      color: $gray-darker;
+      text-decoration: none;
+      outline: none;
+      &:hover,
+      &:focus{
+        text-decoration: none;
+      }
+    }
+    & + .item {
+      margin-left: 50px;
+    }
+    &.active {
+      border-bottom: 2px solid $green;
+      .tab {
+        color: $green-text;
+      }
+    }
+  }
+  .sub-contents {
+    float: right;
+    padding: 0 $contents-padding-side - 20px 0 0;
+    color: $gray;
+    .stand-date{
+      display: inline-block;
+      vertical-align: -4px;
+    }
+    .btn-excel{
+      margin-left: 20px;
+    }
+  }
+}
+
+// compare
+.compare {
+  font-size: 12px;
+  color: $gray-dark;
+  white-space: nowrap;
+  .value {
+    margin-left: 4px;
+    font-family: $font-family-arial;
+    font-weight: bold;
+    font-size: 14px;
+    vertical-align: -1px;
+  }
+  .high {
+    color: $pink;
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 4px;
+      border-bottom: 5px solid;
+      border-right: 4px solid transparent;
+      border-left: 4px solid transparent;
+      vertical-align: 2px;
+    }
+  }
+  .low {
+    color: $brand-info;
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 4px;
+      border-top: 5px solid;
+      border-right: 4px solid transparent;
+      border-left: 4px solid transparent;
+      vertical-align: 2px;
+    }
+  }
+  .equivalence {
+    color: $gray-light;
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 0;
+      margin-left: 4px;
+      border-top: 2px solid $gray-light;
+      vertical-align: 4px;
+    }
+  }
+}
+
+// popup header
+.popup-header{
+  height: 55px;
+  padding: 0 30px;
+  background: $brand-success;
+  .header {
+    display: inline-block;
+    height: 55px;
+    padding: 0;
+    margin: 0;
+    @include nsquare;
+    font-weight: 400;
+    font-size: 20px;
+    color:$gray-lighter;
+    line-height: 55px;
+  }
+}
+
+// 날짜 입력 폼 블럭처리 (2개)
+.form-inside-break {
+  & + .form-inside-break {
+    margin-top: $form-group-margin-bottom;
+  }
+}
+
+// 디테일 리스트 하단에 버튼 (마진값)
+.inside-row-flx {
+  margin-top: $inside-row-flx-top-margin;
+  .flx-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
